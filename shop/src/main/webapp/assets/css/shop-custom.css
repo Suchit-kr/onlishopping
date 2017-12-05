@@ -3,31 +3,35 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
-html {
-	height: 100%;
-}
 
-body {
+/*  body {
 	height: 100%;
-	padding-top: 54px;
+	
 }
 
 @media ( min-width : 992px) {
 	body {
 		padding-top: 56px;
 	}
+} */
+ 
+ html, body {
+  height: 100%;
 }
 
-.wrapper {
-	position: relative;
-	min-height =100%;
+#wrap {
+  min-height: 100%;
 }
 
-.content {
-	padding-bottom: 60px; /*Height of the footer*/
+#main {
+  overflow:auto;
+  padding-bottom:60%; this needs to be bigger than footer height
 }
 
 .footer {
-	position: absolute; height =60px;
-	bottom: 0;
-}
+  position: relative;
+  margin-top: -150px; negative value of footer height
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 

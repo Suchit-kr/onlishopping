@@ -12,6 +12,7 @@
 
 
 	<context:component-scan base-package="in.ecom.shop.controller"></context:component-scan>
+	<context:component-scan base-package="in.ecom.shoppingbackend.daoimpl"></context:component-scan>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

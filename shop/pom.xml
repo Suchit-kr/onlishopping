@@ -13,6 +13,13 @@
 	</properties>
 
 	<dependencies>
+
+		<!-- Adding Backend Project -->
+		<dependency>
+			<groupId>in.ecom</groupId>
+			<artifactId>shoppingbackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- Junit api -->
 		<dependency>
 			<groupId>junit</groupId>

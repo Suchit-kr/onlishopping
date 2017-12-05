@@ -38,13 +38,13 @@
 </head>
 
 <body>
-	<div class="wrapper">
+	<div id="wrap">
 		<!-- Navigation -->
 		<%@ include file="./shared/nav-bar.jsp"%>
 
 
 		<!-- Page Content -->
-		<div class="content">
+		<div id="main" >
 			<!-- Load Home page content on userclick -->
 			<c:if test="${userClickHome == true}">
 				<%@ include file="home.jsp"%>
@@ -61,14 +61,16 @@
 			</c:if>
 
 			<!-- Load View Products page content on userclick -->
-			<c:if test="${userClickViewProducts}">
+			<c:if
+				test="${userClickViewProducts == true or userClickCategoryViewProducts == true}">
 				<%@ include file="products.jsp"%>
 			</c:if>
 		</div>
 
 		<!-- Footer -->
-		<%@ include file="./shared/footer.jsp"%>
-
+		<div class="footer">
+			<%@ include file="./shared/footer.jsp"%>
+		</div>
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
