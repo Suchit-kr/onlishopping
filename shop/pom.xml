@@ -10,6 +10,7 @@
 	<properties>
 		<javaee.version>8.0</javaee.version>
 		<spring-mvc.version>4.3.6.RELEASE</spring-mvc.version>
+		<jackson-version>2.8.1</jackson-version>
 	</properties>
 
 	<dependencies>
@@ -49,6 +50,26 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+
+
+		<!-- JSON API -->
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+
 
 	</dependencies>
 	<build>

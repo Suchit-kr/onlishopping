@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.ecom.shoppingbackend.dao.CategoryDao;
+import in.ecom.shoppingbackend.dao.ProductDao;
 import in.ecom.shoppingbackend.dto.Category;
+import in.ecom.shoppingbackend.dto.Product;
 
 /**
  * @author kumasuch
@@ -19,12 +21,20 @@ import in.ecom.shoppingbackend.dto.Category;
 @Controller
 public class PageController {
 
+	//private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+
 	@Autowired
 	private CategoryDao categoryDao;
+
+	@Autowired
+	private ProductDao productDao;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
 		ModelAndView model = new ModelAndView("page");
+
+		//logger.info("Inside page controller logger");
+
 		model.addObject("categories", categoryDao.getCategory());
 		model.addObject("title", "Home");
 		model.addObject("userClickHome", true);
@@ -61,10 +71,30 @@ public class PageController {
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView getAllProductsById(@PathVariable("id") int id) {
 		ModelAndView model = new ModelAndView("page");
-		model.addObject("title", "Products");
+
+		Category category = categoryDao.getCategoryById(id);
+
+		model.addObject("title", category.getName());
 		model.addObject("categories", categoryDao.getCategory());
-		model.addObject("category", categoryDao.getCategoryById(id));
+		model.addObject("category", category);
 		model.addObject("userClickCategoryViewProducts", true);
+
+		return model;
+	}
+
+	/*
+	 * vIEW sINGLE pRODUCT
+	 */
+
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable("id") int productId) {
+		ModelAndView model = new ModelAndView("page");
+		Product product = productDao.get(productId);
+
+		model.addObject("title", product.getName());
+		model.addObject("product", product);
+
+		model.addObject("userClickCategoryViewSingleProducts", true);
 
 		return model;
 	}

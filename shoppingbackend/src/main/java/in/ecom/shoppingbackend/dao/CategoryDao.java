@@ -12,8 +12,16 @@ import in.ecom.shoppingbackend.dto.Category;
  *
  */
 public interface CategoryDao {
-
+	
 	public List<Category> getCategory();
 
 	public Category getCategoryById(int id);
+	
+	public boolean addCategory(Category category);
+	
+	public boolean updateCategory(Category category);
+	
+	public boolean deleteCategory(Category category);
+	
+	
 }

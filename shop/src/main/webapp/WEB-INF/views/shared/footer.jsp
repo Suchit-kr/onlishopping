@@ -1,9 +1,12 @@
 <!-- Footer -->
-<footer class="py-5 bg-dark">
-	<div class="footer">
-		<p class="m-0 text-center text-white">Copyright &copy; eCom-By
-			Suchit</p>
+<div class="container footer">
+	<div class="row">
+		<div class="col-lg-12">
+			<p>Copyright &copy; eCom-By Suchit</p>
+		</div>
+
 	</div>
-</footer>
+</div>
+
 
 

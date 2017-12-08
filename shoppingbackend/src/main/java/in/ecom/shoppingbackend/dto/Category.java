@@ -3,16 +3,35 @@
  */
 package in.ecom.shoppingbackend.dto;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @author kumasuch
  *
  */
-public class Category {
+@Entity
+public class Category implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String description;
+	
+	@Column(name = "image_url")
 	private String imageUrl;
+	
+	@Column(name = "is_active")
 	private boolean active = true;
 
 	public int getId() {
@@ -55,4 +74,11 @@ public class Category {
 		this.active = active;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageUrl=" + imageUrl
+				+ ", active=" + active + "]";
+	}
+
+	
 }
