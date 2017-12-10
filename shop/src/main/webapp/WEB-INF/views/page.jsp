@@ -84,10 +84,9 @@
 	<%@include file="singleProduct.jsp"%>
 	</c:if>
 	
-	</div>
+	
 
-	<!-- Footer -->
-	<%@ include file="./shared/footer.jsp"%>
+	
 
 
 
@@ -105,7 +104,11 @@
 
 	<!-- Custom JS file -->
 	<script src="${js}/ecom.js"></script>
-	</div>
+	
 </body>
+
+<!-- Footer -->
+	<%@ include file="./shared/footer.jsp"%>
+
 
 </html>

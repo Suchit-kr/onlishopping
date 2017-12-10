@@ -54,7 +54,7 @@ public class ProductDaoImplTest {
 	
 	@Test
 	public void testGet() {
-		assertEquals("samsung", productDAO.get(1).getBrand());
+		assertEquals("samsung", productDAO.get(2).getBrand());
 	}
 
 }

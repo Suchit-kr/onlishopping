@@ -21,11 +21,11 @@ body {
 	width: 350px;
 	height: 430px;
 }
-/* @media ( min-width : 992px) {
+@media ( min-width : 992px) {
 	body {
 		padding-top: 56px;
 	}
-} */
+}
 footer {
 	margin: 0;
 }
@@ -43,5 +43,6 @@ footer {
 	position: absolute;
 	bottom: 0;
 	height: 60px;
+	
 }
 

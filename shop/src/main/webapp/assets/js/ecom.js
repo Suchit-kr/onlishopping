@@ -86,9 +86,9 @@ $(function() {
 								mRender : function(data, type, row) {
 
 									var str = '';
-									str += '<a href="' + window.contextRoot	+ '/show/'+ data+ '/product">View / 	</a> &#160;';
+									str += '<a href="' + window.contextRoot	+ '/show/'+ data+ '/product"  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> View </a> &#160;';
 
-									str += '<a href="' + window.contextRoot	+ '/addToCart/'	+ data + '/product"  >Add to Cart</a> &#160;';
+									str += '<a href="' + window.contextRoot	+ '/addToCart/'	+ data + '/product" class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-shopping-cart" /> Add to Cart</a> &#160;';
 
 									
 									
