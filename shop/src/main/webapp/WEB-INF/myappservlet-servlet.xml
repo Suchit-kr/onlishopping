@@ -11,7 +11,7 @@
    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-	<context:component-scan base-package="in.ecom.shop.controller"></context:component-scan>
+	<context:component-scan base-package="in.ecom.shop"></context:component-scan>
 	<context:component-scan base-package="in.ecom.shoppingbackend"></context:component-scan>
 
 	<bean id="viewResolver"

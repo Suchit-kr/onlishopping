@@ -3,12 +3,15 @@
  */
 package in.ecom.shop.controller;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import in.ecom.shop.exception.ProductNotFoundException;
 import in.ecom.shoppingbackend.dao.CategoryDao;
 import in.ecom.shoppingbackend.dao.ProductDao;
 import in.ecom.shoppingbackend.dto.Category;
@@ -21,7 +24,8 @@ import in.ecom.shoppingbackend.dto.Product;
 @Controller
 public class PageController {
 
-	//private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	// private static final Logger logger =
+	// LoggerFactory.getLogger(PageController.class);
 
 	@Autowired
 	private CategoryDao categoryDao;
@@ -33,7 +37,7 @@ public class PageController {
 	public ModelAndView index() {
 		ModelAndView model = new ModelAndView("page");
 
-		//logger.info("Inside page controller logger");
+		// logger.info("Inside page controller logger");
 
 		model.addObject("categories", categoryDao.getCategory());
 		model.addObject("title", "Home");
@@ -87,16 +91,21 @@ public class PageController {
 	 */
 
 	@RequestMapping(value = "/show/{id}/product")
-	public ModelAndView showSingleProduct(@PathVariable("id") int productId) {
+	public ModelAndView showSingleProduct(@PathVariable("id") int productId) throws ProductNotFoundException {
 		ModelAndView model = new ModelAndView("page");
-		Product product = productDao.get(productId);
+		try {
+			Product product = productDao.get(productId);
+			model.addObject("title", product.getName());
+			model.addObject("product", product);
 
-		model.addObject("title", product.getName());
-		model.addObject("product", product);
+			model.addObject("userClickCategoryViewSingleProducts", true);
 
-		model.addObject("userClickCategoryViewSingleProducts", true);
+			return model;
+		} catch (NoResultException e) {
+			e.printStackTrace();
+			throw new ProductNotFoundException("No product with given id is available");
+		}
 
-		return model;
 	}
 
 }

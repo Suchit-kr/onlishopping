@@ -7,10 +7,10 @@
 		</encoder>
 
 	</appender>
-	<logger name="in.ecom" level="INFO">
+	<logger name="in.ecom" level="INFO" additivity="false">
 		<appender-ref ref="consoleAppender"></appender-ref>
 	</logger>
-	<root>
+	<root level="INFO">
 		<appender-ref ref="consoleAppender"></appender-ref>
 	</root>
 
