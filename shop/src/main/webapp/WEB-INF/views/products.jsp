@@ -45,7 +45,7 @@
 								<td>Name</td>
 								<td>Brand</td>
 								<td>Price</td>
-								<td>Qty. Available</td>
+								<td>Qty.</td>
 								<td></td>
 							</tr>
 						</thead>

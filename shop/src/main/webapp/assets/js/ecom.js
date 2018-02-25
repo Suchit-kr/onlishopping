@@ -11,6 +11,9 @@ $(function() {
 	case 'All Products':
 		$('#products').addClass('active');
 		break;
+	case 'Manage Products':
+		$('#manageProduct').addClass('active');
+		break;
 	default:
 		if (menu == "Home")
 			break;
@@ -21,16 +24,16 @@ $(function() {
 
 	var $table = $('#productListTable');
 
-	// execute the below code only where we have this table
+	// execute the below code only where we have Product list Table in Product
+	// display page
 	if ($table.length) {
-		console.log('Inside the table!');
 
 		var jsonUrl = '';
 		if (window.categoryId == '') {
-			console.log('Inside the table!--- Inside all Products');
+
 			jsonUrl = window.contextRoot + '/json/data/all/products';
 		} else {
-			console.log('Inside the table!--- Inside Category Products');
+
 			jsonUrl = window.contextRoot + '/json/data/category/'
 					+ window.categoryId + '/products';
 		}
@@ -88,7 +91,8 @@ $(function() {
 								mRender : function(data, type, row) {
 
 									var str = '';
-									str += '<a href="'+ window.contextRoot
+									str += '<a href="'
+											+ window.contextRoot
 											+ '/show/'
 											+ data
 											+ '/product"  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open"></span> </a> &#160;';
@@ -110,5 +114,64 @@ $(function() {
 							} ]
 				});
 	}
+
+	var $table = $('#manageProductListTable');
+	// execute the below code only where we have Product list Table in Product
+	// Management Page
+
+	/*
+	 * if ($table.length) {
+	 * 
+	 * var jsonUrl= window.contextRoot+'/json/data/all/products';
+	 * 
+	 * $table.DataTable({ ajax: { url : jsonUrl, dataSrc='' }, columns:[ {
+	 * data:'code', bSortable :false, mRender : function(data,type,row){
+	 * 
+	 * return 'img<src="' + window.contextRoot +'/resources/images'+ data
+	 * +'.jpg class="dataTableImg" />'; } }
+	 *  ]
+	 *  }) }
+	 */
+
+	// dismissing alert after 3 seconds
+	var $alert = $('.alert');
+
+	if ($alert.length) {
+		setTimeout(function() {
+			$alert.fadeOut('slow');
+		}, 5000)
+
+	}
+
+	$('.switch input[type="checkbox"]').on('change',	function() {
+
+				var checkbox = $(this);
+				var ischecked = checkbox.prop('checked');
+
+				var dmsg = (ischecked) ? 'You want to activate the Product'
+						: 'You want to deactivate the Product';
+				var value = checkbox.prop('value');
+
+				bootbox.confirm({
+					size : 'medium',
+					title : ' Product Avtivation/Deactivation',
+					message : dmsg,
+					callback : function(confirmed) {
+
+						if (confirmed) {
+							console.log(value);
+							bootbox.alert({
+								size : 'medium',
+								title : 'information',
+								message : 'Please confirm again ' + value
+							});
+						} else {
+							checkbox.prop('checked', !checked);
+						}
+
+					}
+
+				});
+			})
 
 });

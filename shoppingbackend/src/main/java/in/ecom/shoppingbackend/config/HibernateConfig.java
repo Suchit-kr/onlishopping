@@ -48,7 +48,7 @@ public class HibernateConfig {
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 
-		sessionBuilder.addProperties(getHIbernateProperties());
+		sessionBuilder.addProperties(getHibernateProperties());
 
 		sessionBuilder.scanPackages("in.ecom.shoppingbackend.dto");
 
@@ -56,13 +56,13 @@ public class HibernateConfig {
 
 	}
 
-	// HIbernate Properties
-	private Properties getHIbernateProperties() {
+	// Hibernate Properties
+	private Properties getHibernateProperties() {
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", DATABASE_DIALECT);
 		properties.put("hibernate.show_sql", true);
 		properties.put("hibernate.format_sql", true);
-		//properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		
 
 		return properties;

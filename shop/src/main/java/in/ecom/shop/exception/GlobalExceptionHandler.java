@@ -3,8 +3,10 @@
  */
 package in.ecom.shop.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+	@ResponseStatus(code=HttpStatus.NOT_FOUND)
 	@ExceptionHandler(NoHandlerFoundException.class)
 	public ModelAndView noExceptionHandlerFound() {
 		ModelAndView model = new ModelAndView("error");
@@ -29,6 +32,7 @@ public class GlobalExceptionHandler {
 		return model;
 	}
 	
+	@ResponseStatus(value=HttpStatus.NOT_FOUND)
 	@ExceptionHandler(ProductNotFoundException.class)
 	public ModelAndView handlerProductNotFoundException() {
 		ModelAndView model = new ModelAndView("error");

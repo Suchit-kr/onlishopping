@@ -73,7 +73,7 @@
 
 
 					<!-- Back to all products page -->
-					<a href="${contextRoot}/show/all/product" class="btn btn-primary">Back</a>
+					<a href="${contextRoot}/show/all/products" class="btn btn-primary">Back</a>
 
 
 

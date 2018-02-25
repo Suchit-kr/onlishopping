@@ -3,15 +3,17 @@ package in.ecom.shoppingbackendTest.dto;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 
 import in.ecom.shoppingbackend.dao.CategoryDao;
 import in.ecom.shoppingbackend.dto.Category;
-	
 
+@ContextConfiguration()
 public class CategoryTest {
 
 	@Autowired
@@ -73,8 +75,8 @@ public class CategoryTest {
 		assertTrue(categoryDAO.deleteCategory(category));
 	}
 
-	@Test
-	public void crudTest(){
-		
+	@AfterClass
+	public static void destroy() {
+		context.close();
 	}
 }

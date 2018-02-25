@@ -24,7 +24,7 @@
 
 <!--   <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-<script 
+<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  -->
@@ -78,15 +78,18 @@
 		test="${userClickViewProducts == true or userClickCategoryViewProducts == true}">
 		<%@ include file="products.jsp"%>
 	</c:if>
-	
+
 	<!-- Load single Product view -->
 	<c:if test="${ userClickCategoryViewSingleProducts== true}">
-	<%@include file="singleProduct.jsp"%>
+		<%@include file="singleProduct.jsp"%>
 	</c:if>
-	
-	
 
-	
+	<!-- Manage Products -->
+	<c:if test="${userClickManageProducts ==true}">
+		<%@ include file="manageProduct.jsp"%>
+	</c:if>
+
+
 
 
 
@@ -100,15 +103,18 @@
 	<script src="${js}/jquery.dataTables.js"></script>
 
 	<!-- DataTable Bootstrap Js -->
-	<%-- <script src="${js}/dataTables.bootstrap.js"></script> --%>
+	<script src="${js}/dataTables.bootstrap.js"></script>
+
+	<!-- BootBox Plugin -->
+	<script src="${js}/bootbox.min.js"></script>
 
 	<!-- Custom JS file -->
 	<script src="${js}/ecom.js"></script>
-	
+
 </body>
 
 <!-- Footer -->
-	<%@ include file="./shared/footer.jsp"%>
+<%@ include file="./shared/footer.jsp"%>
 
 
 </html>

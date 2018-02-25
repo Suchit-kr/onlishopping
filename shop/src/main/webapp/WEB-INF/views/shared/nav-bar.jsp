@@ -11,10 +11,19 @@
 			<ul class="navbar-nav">
 				<li class="navbar-left"><a class="nav-link" id="products"
 					href="${contextRoot}/show/all/products">View Products</a></li>
+
+
 				<li class="nav-item"><a class="nav-link" id="contact"
 					href="${contextRoot}/contact">Contact Us</a></li>
+
+
 				<li class="nav-item"><a class="nav-link" id="about"
 					href="${contextRoot}/about">About</a></li>
+
+				<li class="navbar-left"><a class="nav-link" id="manageProduct"
+					href="${contextRoot}/manage/products">Manage Products</a></li>
+
+
 				<li class="nav-item"></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0 ml-auto" data-dpmaxz-eid="1">

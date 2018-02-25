@@ -54,19 +54,33 @@ public class ProductDaoImpl implements ProductDao {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getActiveProductByCategory(int categoryId) {
 		String hql = "FROM Product where is_active = :active AND category_id= :id";
-		
-		return sessionFactory.getCurrentSession().createQuery(hql).setParameter("active", true).setParameter("id", categoryId).getResultList();
-		
-	
+
+		return sessionFactory.getCurrentSession().createQuery(hql).setParameter("active", true)
+				.setParameter("id", categoryId).getResultList();
+
 	}
 
 	@Override
 	public Product get(int productId) {
-		String hql="FROM Product where id= :productId";
-		return (Product) sessionFactory.getCurrentSession().createQuery(hql).setParameter("productId", productId).getSingleResult();
+		String hql = "FROM Product where id= :productId";
+		return (Product) sessionFactory.getCurrentSession().createQuery(hql).setParameter("productId", productId)
+				.getSingleResult();
+	}
+
+	@Override
+	public boolean addProduct(Product product) {
+		try {
+			sessionFactory.getCurrentSession().save(product);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
 	}
 
 }
