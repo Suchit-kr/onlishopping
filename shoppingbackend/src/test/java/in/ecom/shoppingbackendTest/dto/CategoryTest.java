@@ -48,6 +48,7 @@ public class CategoryTest {
 
 	@Test
 	public void testGetCategory() {
+		System.out.println(context.getBean("sessionFactory"));
 		assertEquals(1, categoryDAO.getCategory().size());
 	}
 

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.ws.rs.Produces;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -107,6 +109,12 @@ public class ManageProductController {
 	public List<Category> getCategories() {
 
 		return categoryDao.getCategory();
+	}
+	
+	@RequestMapping(value="/json/products")
+	@ResponseBody
+	public List<Product> getAllProductsJson(){
+		return productDao.getActiveProductList();
 	}
 
 }

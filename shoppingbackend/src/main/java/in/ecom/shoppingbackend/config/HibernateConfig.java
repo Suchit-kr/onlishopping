@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HibernateConfig {
 
-	private static final String DATABASE_CLASS = "com.mysql.jdbc.Driver";
+	private static final String DATABASE_CLASS = "com.mysql.cj.jdbc.Driver";
 	private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ecom";
 	private static final String DATABASE_USERNAME = "root";
 	private static final String DATABASE_PASSWORD = "root";
@@ -63,6 +63,8 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", true);
 		properties.put("hibernate.format_sql", true);
 		properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("cache.use_second_level_cache", true);
+		properties.put("cache.provider_class", "org.hibernate.");
 		
 
 		return properties;
