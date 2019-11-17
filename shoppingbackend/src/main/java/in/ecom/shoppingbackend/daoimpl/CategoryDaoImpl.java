@@ -16,7 +16,7 @@ import in.ecom.shoppingbackend.dto.Category;
 
 /**
  * @author kumasuch
- *
+ * Category Dao File to work with Category related Dao Data
  */
 @Repository(value = "categoryDao")
 @Transactional
