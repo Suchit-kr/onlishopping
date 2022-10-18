@@ -10,7 +10,7 @@
 	<properties>
 		<javaee.version>8.0</javaee.version>
 		<spring-mvc.version>4.3.6.RELEASE</spring-mvc.version>
-		<jackson-version>2.8.1</jackson-version>
+		<jackson-version>2.13.4.1</jackson-version>
 	</properties>
 
 	<dependencies>
